@@ -90,9 +90,23 @@ public class SinglyLinkedList<E extends Comparable<E>> {
     }
 
     // - sort -- sorts the list using your algorithm of choice.
-   
-
-
+    public void sort() {
+        if (size > 1) {
+            for (int i = 0; i < size; i++) {
+                Node<E> currentNode = head;
+                Node<E> nextNode = head.next;
+                for (int j = 0; j < size - 1; j++) {
+                    if ((currentNode.element).compareTo(nextNode.element) > 0) {
+                        E temp = currentNode.element;
+                        currentNode.setElement(nextNode.element);
+                        nextNode.setElement(temp);
+                    }
+                    currentNode = nextNode;
+                    nextNode = nextNode.next;
+                }
+            }
+        }
+    }
 
     public Node<E> getHead() {
         return head;

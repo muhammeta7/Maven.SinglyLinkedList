@@ -295,5 +295,65 @@ public class SinglyLinkedListTest<E> {
         Assert.assertEquals(expectedSize, actualSize);
     }
 
+    // Sort Tests
+    //=====================================================================================
+    @Test
+    public void sortOneElementTest(){
+        // Given
+        linkedList.add("sad");
+        SinglyLinkedList.Node expectedHead = linkedList.getHead();
+
+        // When
+        linkedList.sort();
+        SinglyLinkedList.Node actualHead = linkedList.getHead();
+
+        // Then
+        Assert.assertEquals(expectedHead, actualHead);
+    }
+
+    @Test
+    public void sortStringsTest() throws Exception {
+        // Given
+        linkedList.add("sort");
+        linkedList.add("god");
+        linkedList.add("oh");
+        int expectedFindGod = 0;
+        int expectedFindOh = 1;
+        int expectedFindSort = 2;
+
+        // When
+        linkedList.sort();
+        int actualFindGod = linkedList.find("god");
+        int actualFindOh = linkedList.find("oh");
+        int actualFindSort = linkedList.find("sort");
+
+        // Then
+        Assert.assertEquals(expectedFindGod, actualFindGod);
+        Assert.assertEquals(expectedFindOh, actualFindOh);
+        Assert.assertEquals(expectedFindSort, actualFindSort);
+    }
+
+    @Test
+    public void sortIntegersTest() throws Exception {
+        // Given
+        intList.add(3);
+        intList.add(5);
+        intList.add(1);
+        int expectedFind1 = 0;
+        int expectedFind3 = 1;
+        int expectedFind5 = 2;
+
+        // When
+        intList.sort();
+        int actualFind1 = intList.find(1);
+        int actualFind3 = intList.find(3);
+        int actualFind5 = intList.find(5);
+
+        // Then
+        Assert.assertEquals(expectedFind1, actualFind1);
+        Assert.assertEquals(expectedFind3, actualFind3);
+        Assert.assertEquals(expectedFind5, actualFind5);
+    }
+
 }
 
